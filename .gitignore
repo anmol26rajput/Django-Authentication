@@ -1,1 +1,6 @@
 myenv/
+.masti.env
+requirements.txt
+migrations/
+pycache/
+__pycache__/

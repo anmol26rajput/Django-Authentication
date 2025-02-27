@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import environ
+import os
 from pathlib import Path
 
 env = environ.Env(
@@ -24,12 +25,14 @@ environ.Env.read_env(BASE_DIR / '.env')
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'django-insecure-)ptlc95yf&0!4@&63*9zus-d73dgfe6$2#h5fxl+&-kkmk)e&6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = []  # Default to an empty string
+
 
 
 # Application definition
@@ -43,7 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'authenticationmodel',
+    'account',
+    # 'authenticationmodel',
+    # 'authuser',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +93,8 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = 'authenticationmodel.User'
+AUTH_USER_MODEL = 'account.User'  # Ensure it's correct
+
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
